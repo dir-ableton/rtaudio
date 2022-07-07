@@ -1093,6 +1093,7 @@ public:
   ~RtApiPulse();
   RtAudio::Api getCurrentApi() override { return RtAudio::LINUX_PULSE; }
   unsigned int getDeviceCount( void ) override;
+  unsigned int getDefaultOutputDevice( void ) override ;
   RtAudio::DeviceInfo getDeviceInfo( unsigned int device ) override;
   void closeStream( void ) override;
   void startStream( void ) override;

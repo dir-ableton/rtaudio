@@ -8648,6 +8648,18 @@ RtApiPulse::~RtApiPulse()
     closeStream();
 }
 
+unsigned int RtApiPulse::getDefaultOutputDevice( void )
+{
+  for(size_t i = 0; i < rt_pa_info.dev.size(); ++i)
+  {
+    if(rt_pa_info.dev[i].info.isDefaultOutput)
+    {
+      return i;
+    }
+  }
+  return 0;
+}
+
 void RtApiPulse::collectDeviceInfo( void )
 {
   pa_context *context = NULL;
